@@ -1,0 +1,33 @@
+= rr-sweatshop
+
+== Overview
+
+rr-sweatshop is a model factory for restful resources, in the spirit of DataMapper Sweatshop.  It makes it easy & painless to crank out complex pseudo random models -- useful for tests and seed data.  Production Goals:
+
+* Easy generation of random models with data that fits the application domain.
+* Simple syntax for declaring and generating model patterns.
+* Add context to model patterns, allowing grouping and
+* Effortlessly generate or fill in associations for creating complex models with few lines of code.
+
+== How it works
+
+== Examples
+
+=== Overriding a fixture
+
+== Unique values
+
+== Best Practices
+
+=== Specs
+
+The suggested way to use <tt>rr-sweatshop</tt> with test specs is to create a <tt>spec/spec_fixtures.rb</tt> file, then declare your fixtures in there.  Next, @require@ it in your @spec/spec_helper.rb@ file, after your models have loaded.
+
+  Merb.start_environment(:testing => true, :adapter => 'runner', :environment => ENV['MERB_ENV'] || 'test')
+
+  require 'rr-sweatshop'
+  require File.join(File.dirname(__FILE__), 'spec_fixtures')
+
+Add the <tt>.generate</tt> calls in your <tt>before</tt> setup.
+
+== Possible Improvements
